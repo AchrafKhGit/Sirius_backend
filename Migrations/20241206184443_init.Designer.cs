@@ -11,7 +11,7 @@ using sirius.Configurations;
 namespace Siruis_backend.Migrations
 {
     [DbContext(typeof(SiriusDbContext))]
-    [Migration("20241206131402_init")]
+    [Migration("20241206184443_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -375,6 +375,38 @@ namespace Siruis_backend.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("OperationalPrioritizations", (string)null);
+                });
+
+            modelBuilder.Entity("sirius.Entities.Task", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    b.Property<long>("Budget")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Effort")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<DateTime>("EndDate")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<DateTime>("StartDate")
+                        .HasColumnType("datetime(6)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Tasks", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

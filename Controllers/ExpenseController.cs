@@ -7,7 +7,7 @@ using sirius.Repositories;
 namespace sirius.Controllers;
 
 [ApiController]
-[Route("api/[controller]")]
+[Route("api/[controller]s")]
 public class ExpenseController : ControllerBase
 {
     private readonly IExpenseRepository _repository;

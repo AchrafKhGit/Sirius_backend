@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Identity;
 using sirius.Entities;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Task = sirius.Entities.Task;
 
 namespace sirius.Configurations;
 
@@ -12,6 +13,7 @@ public class SiriusDbContext : IdentityDbContext
     
     public DbSet<Livrable> Livrables { get; set; }
     public DbSet<Expense> Expenses { get; set; }
+    public DbSet<Task> Tasks { get; set; }
     public DbSet<HypothesisCategory> HypothesisCategories { get; set; }
     public DbSet<OperationalPrioritization> OperationalPrioritizations { get; set; }
     public DbSet<Hypothesis> Hypothesis { get; set; }
@@ -23,6 +25,7 @@ public class SiriusDbContext : IdentityDbContext
     {
         builder.Entity<Livrable>().ToTable("Livrables");
         builder.Entity<Expense>().ToTable("Expenses");
+        builder.Entity<Task>().ToTable("Tasks");
         builder.Entity<HypothesisCategory>().ToTable("HypothesisCategories");
         builder.Entity<OperationalPrioritization>().ToTable("OperationalPrioritizations");
         builder.Entity<Hypothesis>().ToTable("Hypothesis");
@@ -31,6 +34,7 @@ public class SiriusDbContext : IdentityDbContext
 
         builder.Entity<Livrable>().HasKey(x => x.Id);
         builder.Entity<Expense>().HasKey(x => x.Id);
+        builder.Entity<Task>().HasKey(x => x.Id);
         builder.Entity<Hypothesis>()
             .HasOne(h => h.Category)
             .WithMany(c => c.Hypothesis)
