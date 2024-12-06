@@ -11,7 +11,7 @@ using sirius.Configurations;
 namespace Siruis_backend.Migrations
 {
     [DbContext(typeof(SiriusDbContext))]
-    [Migration("20241206131402_init")]
+    [Migration("20241206204509_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -213,6 +213,43 @@ namespace Siruis_backend.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("sirius.Entities.Activity", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    b.Property<long>("Budget")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Effort")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<DateTime>("EndDate")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<long>("LotId")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<DateTime>("StartDate")
+                        .HasColumnType("datetime(6)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("LotId");
+
+                    b.ToTable("Activities", (string)null);
+                });
+
             modelBuilder.Entity("sirius.Entities.Expense", b =>
                 {
                     b.Property<long>("Id")
@@ -345,6 +382,38 @@ namespace Siruis_backend.Migrations
                     b.ToTable("Livrables", (string)null);
                 });
 
+            modelBuilder.Entity("sirius.Entities.Lot", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    b.Property<long>("Budget")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Effort")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<DateTime>("EndDate")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<DateTime>("StartDate")
+                        .HasColumnType("datetime(6)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Lots", (string)null);
+                });
+
             modelBuilder.Entity("sirius.Entities.MigrationHistory", b =>
                 {
                     b.Property<string>("MigrationId")
@@ -375,6 +444,43 @@ namespace Siruis_backend.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("OperationalPrioritizations", (string)null);
+                });
+
+            modelBuilder.Entity("sirius.Entities.Task", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    b.Property<long>("ActivityId")
+                        .HasColumnType("bigint");
+
+                    b.Property<long>("Budget")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Effort")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<DateTime>("EndDate")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<DateTime>("StartDate")
+                        .HasColumnType("datetime(6)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ActivityId");
+
+                    b.ToTable("Tasks", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -428,6 +534,17 @@ namespace Siruis_backend.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("sirius.Entities.Activity", b =>
+                {
+                    b.HasOne("sirius.Entities.Lot", "Lot")
+                        .WithMany("Activities")
+                        .HasForeignKey("LotId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Lot");
+                });
+
             modelBuilder.Entity("sirius.Entities.Hypothesis", b =>
                 {
                     b.HasOne("sirius.Entities.HypothesisCategory", "Category")
@@ -450,6 +567,22 @@ namespace Siruis_backend.Migrations
                     b.Navigation("Hypothesis");
                 });
 
+            modelBuilder.Entity("sirius.Entities.Task", b =>
+                {
+                    b.HasOne("sirius.Entities.Activity", "Activity")
+                        .WithMany("Tasks")
+                        .HasForeignKey("ActivityId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Activity");
+                });
+
+            modelBuilder.Entity("sirius.Entities.Activity", b =>
+                {
+                    b.Navigation("Tasks");
+                });
+
             modelBuilder.Entity("sirius.Entities.Hypothesis", b =>
                 {
                     b.Navigation("History");
@@ -458,6 +591,11 @@ namespace Siruis_backend.Migrations
             modelBuilder.Entity("sirius.Entities.HypothesisCategory", b =>
                 {
                     b.Navigation("Hypothesis");
+                });
+
+            modelBuilder.Entity("sirius.Entities.Lot", b =>
+                {
+                    b.Navigation("Activities");
                 });
 #pragma warning restore 612, 618
         }

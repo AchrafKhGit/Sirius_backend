@@ -6,6 +6,7 @@ using sirius.Configurations;
 using Microsoft.EntityFrameworkCore;
 using System.Text.Json.Serialization;
 using Microsoft.OpenApi.Models;
+using Siruis_backend.Repositories.Implementations;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,6 +21,9 @@ builder.Services.AddDbContext<SiriusDbContext>(options =>
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddScoped<ILivrableRepository, LivrableRepository>();
+builder.Services.AddScoped<ITaskRepository, TaskRepository>();
+builder.Services.AddScoped<IActivityRepository, ActivityRepository>();
+builder.Services.AddScoped<ILotRepository, LotRepository>();
 builder.Services.AddScoped<IExpenseRepository, ExpenseRepository>();
 builder.Services.AddScoped<IHypothesisCategoryRepository, HypothesisCategoryRepository>();
 builder.Services.AddScoped<IOperationalPrioritizationRepository, OperationalPrioritizationRepository>();
