@@ -1,6 +1,6 @@
-﻿namespace sirius.Models.Task;
+﻿namespace sirius.Entities;
 
-public class TaskViewDto
+public class Lot
 {
     public long Id { get; set; }
     public string Name { get; set; }
@@ -9,6 +9,5 @@ public class TaskViewDto
     public DateTime EndDate { get; set; }
     public long Budget { get; set; }
     public string Effort { get; set; }
-    public long ActivityId { get; set; }
-    public string ActivityName { get; set; }
+    public List<Activity> Activities { get; set; }
 }

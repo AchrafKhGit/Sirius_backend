@@ -8,4 +8,5 @@ public class TaskCreateDto
     public DateTime EndDate { get; set; }
     public long Budget { get; set; }
     public string Effort { get; set; }
+    public long ActivityId { get; set; }
 }

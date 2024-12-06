@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace sirius.Entities;
 
-public class Task
+public class Activity
 {
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -14,6 +14,8 @@ public class Task
     public DateTime EndDate { get; set; }
     public long Budget { get; set; }
     public string Effort { get; set; }
-    public long ActivityId { get; set; }
-    public Activity Activity  { get; set; }
+    public long LotId { get; set; }
+    public Lot Lot { get; set; }
+    
+    public List<Task> Tasks { get; set; }
 }

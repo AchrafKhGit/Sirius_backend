@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Siruis_backend")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+76ce1d31693d4f443ec7cc3774301ff9c4b6b57d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d5d8cd1169c57f2f1910ff6d03a7613d77a97732")]
 [assembly: System.Reflection.AssemblyProductAttribute("Siruis_backend")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Siruis_backend")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

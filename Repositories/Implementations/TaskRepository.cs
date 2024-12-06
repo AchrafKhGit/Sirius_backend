@@ -35,7 +35,8 @@ public class TaskRepository : ITaskRepository
             StartDate = createDto.StartDate,
             EndDate = createDto.EndDate,
             Budget = createDto.Budget,
-            Effort = createDto.Effort
+            Effort = createDto.Effort,
+            ActivityId = createDto.ActivityId
         };
         await _db.Tasks.AddAsync(task);
         await _db.SaveChangesAsync();

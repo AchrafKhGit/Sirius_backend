@@ -1,11 +1,13 @@
 using AutoMapper;
 using sirius.Entities;
+using sirius.Models.Activity;
 using sirius.Models.Hypothesis;
 using sirius.Models.HypothesisCategory;
 using sirius.Models.HypothesisHistory;
 using sirius.Models.Livrable;
 using sirius.Models.OperationalPrioritization;
 using sirius.Models.Expense;
+using sirius.Models.Lot;
 using sirius.Models.Task;
 using Task = sirius.Entities.Task;
 
@@ -22,6 +24,8 @@ public class AutoMapperInitializer : Profile
 		CreateMappingsForLivrable();
 		CreateMappingsForExpence();
 		CreateMappingsForTask();
+		CreateMappingsForActivity();
+		CreateMappingsForLot();
 	}
 
 	private void CreateMappingsForLivrable()
@@ -44,7 +48,30 @@ public class AutoMapperInitializer : Profile
 	{
 		CreateMap<Task, TaskCreateDto>().ReverseMap();
 		CreateMap<Task, TaskUpdateDto>().ReverseMap();
-		CreateMap<Task, TaskViewDto>().ReverseMap();
+		CreateMap<Task, TaskViewDto>()
+			.ForMember(dest => dest.ActivityId, opt => opt.MapFrom(src => src.Activity.Id))
+			.ForMember(dest => dest.ActivityName, opt => opt.MapFrom(src => src.Activity.Name))
+			.ReverseMap();
+	}
+
+	private void CreateMappingsForActivity()
+	{
+		CreateMap<Activity, ActivityCreateDto>().ReverseMap();
+		CreateMap<Activity, ActivityUpdateDto>().ReverseMap();
+		CreateMap<Activity, ActivityViewDto>()
+			.ForMember(dest => dest.LotId, opt => opt.MapFrom(src => src.Lot.Id))
+			.ForMember(dest => dest.LotName, opt => opt.MapFrom(src => src.Lot.Name))
+			.ForMember(dest => dest.TaskNames, opt => opt.MapFrom(src => src.Tasks.Select(t => t.Name)))
+			.ReverseMap();
+	}
+
+	private void CreateMappingsForLot()
+	{
+		CreateMap<Lot, LotCreateDto>().ReverseMap();
+		CreateMap<Lot, LotUpdateDto>().ReverseMap();
+		CreateMap<Lot, LotViewDto>()
+			.ForMember(dest => dest.ActivityNames, opt => opt.MapFrom(src => src.Activities.Select(t => t.Name)))
+			.ReverseMap();
 	}
 	private void CreateMappingsForHypothesis()
 	{
