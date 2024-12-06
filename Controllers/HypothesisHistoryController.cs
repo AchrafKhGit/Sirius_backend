@@ -26,14 +26,14 @@ public class HypothesisHistoryController : ControllerBase
     }
 
     [HttpGet("hypothesis/{hypothesisId}")]
-    public async Task<IActionResult> GetHistoryByHypothesisId(int hypothesisId)
+    public async Task<IActionResult> GetHistoryByHypothesisId(long hypothesisId)
     {
         var histories = await _repository.GetHypothesisHistoriesByHypothesisId(hypothesisId);
         return Ok(_mapper.Map<IEnumerable<HistoryViewDto>>(histories));
     }
 
     [HttpGet("{id}")]
-    public async Task<IActionResult> GetHistoryById(int id)
+    public async Task<IActionResult> GetHistoryById(long id)
     {
         var history = await _repository.GetHypothesisHistoryById(id);
         if (history == null)

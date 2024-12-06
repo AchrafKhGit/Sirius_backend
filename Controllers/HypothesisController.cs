@@ -23,13 +23,7 @@ public class HypothesisController : ControllerBase
     public async Task<IActionResult> GetAllHypothesis()
     {
         var hypotheses = await _repository.GetAllHypothesis();
-
-        if (hypotheses == null || !hypotheses.Any())
-        {
-            return NotFound("No hypotheses found.");
-        }
-
-        var hypoView = _mapper.Map<List<HypothesisViewDto>>(hypotheses);
+        var hypoView = _mapper.Map<IEnumerable<HypothesisViewDto>>(hypotheses);
 
         return Ok(hypoView);
     }

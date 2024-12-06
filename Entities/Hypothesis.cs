@@ -1,9 +1,13 @@
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using sirius.Enumerations;
 
 namespace sirius.Entities;
 
 public class Hypothesis
 {
+    [Key]
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public long Id { get; set; }
     public string Nom { get; set; }
     public string Description { get; set; }
@@ -17,4 +21,3 @@ public class Hypothesis
     public HypothesisType Type { get; set; }
     public List<HypothesisHistory>? History { get; set; }
 }
-

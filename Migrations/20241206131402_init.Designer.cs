@@ -11,7 +11,7 @@ using sirius.Configurations;
 namespace Siruis_backend.Migrations
 {
     [DbContext(typeof(SiriusDbContext))]
-    [Migration("20241205224053_init")]
+    [Migration("20241206131402_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -213,6 +213,32 @@ namespace Siruis_backend.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("sirius.Entities.Expense", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("Comment")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<int>("Type")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Value")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Expenses", (string)null);
+                });
+
             modelBuilder.Entity("sirius.Entities.Hypothesis", b =>
                 {
                     b.Property<long>("Id")
@@ -322,6 +348,7 @@ namespace Siruis_backend.Migrations
             modelBuilder.Entity("sirius.Entities.MigrationHistory", b =>
                 {
                     b.Property<string>("MigrationId")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("varchar(255)");
 
                     b.Property<DateTime>("AppliedOn")
