@@ -20,6 +20,7 @@ builder.Services.AddDbContext<SiriusDbContext>(options =>
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddScoped<ILivrableRepository, LivrableRepository>();
+builder.Services.AddScoped<IExpenseRepository, ExpenseRepository>();
 builder.Services.AddScoped<IHypothesisCategoryRepository, HypothesisCategoryRepository>();
 builder.Services.AddScoped<IOperationalPrioritizationRepository, OperationalPrioritizationRepository>();
 builder.Services.AddScoped<IHypothesisRepository, HypothesisRepository>();

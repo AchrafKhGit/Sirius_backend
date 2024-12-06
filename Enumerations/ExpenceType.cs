@@ -1,7 +1,11 @@
+using System.Runtime.Serialization;
+
 namespace sirius.Enumerations;
 
 public enum ExpenceType
 {
-    Material,
-    Employee
+    [EnumMember(Value = "Achat")]
+    Achat = 1,
+    [EnumMember(Value = "Deplacement")]
+    Deplacement = 2
 }

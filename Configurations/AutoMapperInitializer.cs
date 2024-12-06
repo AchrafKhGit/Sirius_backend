@@ -5,6 +5,7 @@ using sirius.Models.HypothesisCategory;
 using sirius.Models.HypothesisHistory;
 using sirius.Models.Livrable;
 using sirius.Models.OperationalPrioritization;
+using sirius.Models.Expense;
 
 namespace sirius.Configurations;
 
@@ -17,6 +18,7 @@ public class AutoMapperInitializer : Profile
 		CreateMappingsForHypothesis();
 		CreateMappingsForHypothesisHistory();
 		CreateMappingsForLivrable();
+		CreateMappingsForExpence();
 	}
 
 	private void CreateMappingsForLivrable()
@@ -24,6 +26,15 @@ public class AutoMapperInitializer : Profile
 		CreateMap<Livrable, LivrableCreateDto>().ReverseMap();
 		CreateMap<Livrable, LivrableUpdateDto>().ReverseMap();
 		CreateMap<Livrable, LivrableViewDto>().ReverseMap();
+	}
+
+	private void CreateMappingsForExpence()
+	{
+		CreateMap<Expense, ExpenseCreateDto>().ReverseMap();
+		CreateMap<Expense, ExpenseUpdateDto>().ReverseMap();
+		CreateMap<Expense, ExpenseViewDto>()
+			.ForMember(dest => dest.TypeName, opt => opt.MapFrom(src => src.Type))
+			.ReverseMap();
 	}
 	private void CreateMappingsForHypothesis()
 	{
