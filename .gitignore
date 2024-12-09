@@ -1,0 +1,8 @@
+packages/
+Dependencies/
+bin/
+obj/
+bin/Debug/
+**/bin/
+**/obj/
+.vs/

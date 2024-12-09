@@ -12,6 +12,7 @@ public class SiriusDbContext : IdentityDbContext
 {
     public SiriusDbContext(DbContextOptions<SiriusDbContext> options) : base(options){ }
     
+    public DbSet<Objectifs> Objectifs { get; set; }
     public DbSet<Livrable> Livrables { get; set; }
     public DbSet<Expense> Expenses { get; set; }
     public DbSet<Task> Tasks { get; set; }
@@ -26,6 +27,7 @@ public class SiriusDbContext : IdentityDbContext
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
+        builder.Entity<Objectifs>().ToTable("Objectifs");
         builder.Entity<Livrable>().ToTable("Livrables");
         builder.Entity<Expense>().ToTable("Expenses");
         builder.Entity<Task>().ToTable("Tasks");

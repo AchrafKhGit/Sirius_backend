@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using sirius.Configurations;
 
@@ -10,9 +11,10 @@ using sirius.Configurations;
 namespace Siruis_backend.Migrations
 {
     [DbContext(typeof(SiriusDbContext))]
-    partial class SiriusDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241209141039_initi")]
+    partial class initi
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

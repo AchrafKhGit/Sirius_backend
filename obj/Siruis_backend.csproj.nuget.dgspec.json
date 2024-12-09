@@ -1,28 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\projects\\Alidantek\\Siruis\\Sirius_backend\\Siruis_backend.csproj": {}
+    "C:\\Users\\achra\\Bureau\\projects\\Siruis\\Sirius_backend\\Siruis_backend.csproj": {}
   },
   "projects": {
-    "C:\\projects\\Alidantek\\Siruis\\Sirius_backend\\Siruis_backend.csproj": {
+    "C:\\Users\\achra\\Bureau\\projects\\Siruis\\Sirius_backend\\Siruis_backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\projects\\Alidantek\\Siruis\\Sirius_backend\\Siruis_backend.csproj",
+        "projectUniqueName": "C:\\Users\\achra\\Bureau\\projects\\Siruis\\Sirius_backend\\Siruis_backend.csproj",
         "projectName": "Siruis_backend",
-        "projectPath": "C:\\projects\\Alidantek\\Siruis\\Sirius_backend\\Siruis_backend.csproj",
-        "packagesPath": "C:\\Users\\AMINA\\.nuget\\packages\\",
-        "outputPath": "C:\\projects\\Alidantek\\Siruis\\Sirius_backend\\obj\\",
+        "projectPath": "C:\\Users\\achra\\Bureau\\projects\\Siruis\\Sirius_backend\\Siruis_backend.csproj",
+        "packagesPath": "C:\\Users\\achra\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\achra\\Bureau\\projects\\Siruis\\Sirius_backend\\obj\\",
         "projectStyle": "PackageReference",
-        "UsingMicrosoftNETSdk": false,
         "configFilePaths": [
-          "C:\\Users\\AMINA\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\achra\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -88,19 +85,19 @@
           "downloadDependencies": [
             {
               "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[6.0.26, 6.0.26]"
+              "version": "[6.0.32, 6.0.32]"
             },
             {
               "name": "Microsoft.NETCore.App.Host.win-x64",
-              "version": "[6.0.26, 6.0.26]"
+              "version": "[6.0.32, 6.0.32]"
             },
             {
               "name": "Microsoft.NETCore.App.Ref",
-              "version": "[6.0.26, 6.0.26]"
+              "version": "[6.0.32, 6.0.32]"
             },
             {
               "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[6.0.26, 6.0.26]"
+              "version": "[6.0.32, 6.0.32]"
             }
           ],
           "frameworkReferences": {
@@ -111,7 +108,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303\\RuntimeIdentifierGraph.json"
         }
       }
     }

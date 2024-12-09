@@ -20,6 +20,7 @@ builder.Services.AddDbContext<SiriusDbContext>(options =>
 });
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+builder.Services.AddScoped<IObjectifsRepository, ObjectifsRepository>();
 builder.Services.AddScoped<ILivrableRepository, LivrableRepository>();
 builder.Services.AddScoped<ITaskRepository, TaskRepository>();
 builder.Services.AddScoped<IActivityRepository, ActivityRepository>();
