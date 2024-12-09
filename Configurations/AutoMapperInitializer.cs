@@ -4,6 +4,7 @@ using sirius.Models.Hypothesis;
 using sirius.Models.HypothesisCategory;
 using sirius.Models.HypothesisHistory;
 using sirius.Models.Livrable;
+using sirius.Models.Objectifs;
 using sirius.Models.OperationalPrioritization;
 
 namespace sirius.Configurations;
@@ -17,6 +18,7 @@ public class AutoMapperInitializer : Profile
 		CreateMappingsForHypothesis();
 		CreateMappingsForHypothesisHistory();
 		CreateMappingsForLivrable();
+		CreateMappingsForObjectifs();
 	}
 
 	private void CreateMappingsForLivrable()
@@ -24,6 +26,14 @@ public class AutoMapperInitializer : Profile
 		CreateMap<Livrable, LivrableCreateDto>().ReverseMap();
 		CreateMap<Livrable, LivrableUpdateDto>().ReverseMap();
 		CreateMap<Livrable, LivrableViewDto>().ReverseMap();
+	}
+
+	private void CreateMappingsForObjectifs()
+	{
+		CreateMap<Objectifs, ObjectifsCreateDto>().ReverseMap();
+		CreateMap<Objectifs, ObjectifsUpdateDto>().ReverseMap();
+		CreateMap<Objectifs, ObjectifsViewDto>().ReverseMap();
+		
 	}
 	private void CreateMappingsForHypothesis()
 	{

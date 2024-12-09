@@ -89,3 +89,4 @@ C:\Users\achra\Bureau\projects\Siruis\Siruis_Backend\obj\Debug\net6.0\Siruis_bac
 C:\Users\achra\Bureau\projects\Siruis\Siruis_Backend\obj\Debug\net6.0\Siruis_backend.pdb
 C:\Users\achra\Bureau\projects\Siruis\Siruis_Backend\obj\Debug\net6.0\Siruis_backend.genruntimeconfig.cache
 C:\Users\achra\Bureau\projects\Siruis\Siruis_Backend\obj\Debug\net6.0\ref\Siruis_backend.dll
+C:\Users\achra\Bureau\projects\Siruis\Siruis_Backend\obj\Debug\net6.0\Siruis_backend.sourcelink.json

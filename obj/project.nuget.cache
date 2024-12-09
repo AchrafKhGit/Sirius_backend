@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "G55kXbLQhhI=",
+  "dgSpecHash": "D+x6eEI4vc2kLDnQKSfSh0iMaLylDYSgd6SBxnXmd85UNwgqk1ABNSzmw73TGzrXYzHl1p/m0DZVwy6qORk9XA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\achra\\Bureau\\projects\\Siruis\\Siruis_Backend\\Siruis_backend.csproj",
+  "projectFilePath": "C:\\Users\\achra\\Bureau\\projects\\Siruis\\Siruis_backend\\Siruis_backend.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\achra\\.nuget\\packages\\automapper\\12.0.0\\automapper.12.0.0.nupkg.sha512",
     "C:\\Users\\achra\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.0\\automapper.extensions.microsoft.dependencyinjection.12.0.0.nupkg.sha512",

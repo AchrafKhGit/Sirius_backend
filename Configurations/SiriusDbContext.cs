@@ -10,6 +10,7 @@ public class SiriusDbContext : IdentityDbContext
 {
     public SiriusDbContext(DbContextOptions<SiriusDbContext> options) : base(options){ }
     
+    public DbSet<Objectifs> Objectifs { get; set; }
     public DbSet<Livrable> Livrables { get; set; }
     public DbSet<HypothesisCategory> HypothesisCategories { get; set; }
     public DbSet<OperationalPrioritization> OperationalPrioritizations { get; set; }
@@ -20,6 +21,7 @@ public class SiriusDbContext : IdentityDbContext
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
+        builder.Entity<Objectifs>().ToTable("Objectifs");
         builder.Entity<Livrable>().ToTable("Livrables");
         builder.Entity<HypothesisCategory>().ToTable("HypothesisCategories");
         builder.Entity<OperationalPrioritization>().ToTable("OperationalPrioritizations");
@@ -27,6 +29,7 @@ public class SiriusDbContext : IdentityDbContext
         builder.Entity<HypothesisHistory>().ToTable("HypothesisHistories");
         builder.Entity<MigrationHistory>().ToTable("MigrationHistories");
 
+        builder.Entity<Objectifs>().HasKey(x => x.Id);
         builder.Entity<Livrable>().HasKey(x => x.Id);
         builder.Entity<Hypothesis>()
             .HasOne(h => h.Category)

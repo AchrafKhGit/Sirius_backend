@@ -35,7 +35,7 @@ public class LivrableController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<IActionResult> CreateLivrable([FromBody] LivrableCreateDto createDto)
+    public async Task<IActionResult> CreateLivrable([FromForm] LivrableCreateDto createDto)
     {
         try
         {
